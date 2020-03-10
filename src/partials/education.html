@@ -14,6 +14,7 @@
           <div class="content">
             <p class="clear-margin relative"><strong>{{{area}}}{{{title}}}{{#if studyType}} ({{{studyType}}}){{/if}},&nbsp;</strong><a href="{{url}}" target="_blank">{{{institution}}}</a></p>
             {{> date}}
+            <p class="clear-margin relative">{{#if grade}}<small>Grade:</small> <i>{{grade}}</i>{{/if}}</p>
             <div class="space-top labels">
               {{#each curriculum}}
               <span class="label label-keyword">{{{this}}}</span>
