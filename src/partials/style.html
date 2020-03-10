@@ -703,4 +703,23 @@ body {
     page-break-before: always;
   }
 }
+
+details > summary {
+  display: list-item;
+  counter-increment: list-item 0;
+  list-style: disclosure-closed inside;
+}
+
+details[open] > summary {
+  list-style: disclosure-open inside;
+}
+
+summary.empty, details[open] > summary.empty {
+  list-style: disc inside;
+}
+
+details.detail > summary {
+  list-style: none;
+}
+
 </style>
