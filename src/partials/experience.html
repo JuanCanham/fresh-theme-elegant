@@ -12,10 +12,16 @@
       {{#each r.employment.history}}
       <li class="card card-nested clearfix">
         <div class="content">
-          <p class="clear-margin relative"><strong>{{{position}}}</strong>,&nbsp;<a href="{{url}}" target="_blank">{{employer}}</a></p>
-          {{> date}}
-          {{{summary}}}
-          {{> highlights}}
+          <details class="employer" tags="{{#each keywords}}{{this}} {{/each}}{{#each technologies}}{{this}} {{/each}}">>
+            <summary>
+              <strong>{{{position}}}</strong>,&nbsp;<a href="{{url}}" target="_blank">{{employer}}</a>
+              </br>{{> date}}
+              {{{summary}}}
+              {{> highlights}}
+            </summary>
+            {{#if description}}<br><p class="clear-margin relative">{{{description}}}</p>{{/if}}
+            {{> work-projects}}
+          </details>
         </div>
       </li>
       {{/each}}

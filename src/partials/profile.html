@@ -32,5 +32,42 @@
               {{/each}}
             </div>
         </div>
+        <hr/>
+        {{#if r.settings.links}}
+        <div class="text-center">
+        <div class=info"><u>Other formats</u></div>
+          {{#each r.settings.links.main}}
+            <a href="{{url}}" target="_blank" >{{name}}</a>
+          {{/each}}
+          {{#if r.settings.links.extra}}
+          <details ontoggle="toggle_pin_menu()">
+            <summary>More</summary>
+            {{#each r.settings.links.extra}}
+              {{#group}}{{.}}:{{/group}}
+              {{#each links}}
+                {{#if name}}
+                  <a href="{{url}}" target="_blank" >{{name}}</a>
+                {{else}}
+                  <a href="{{.}}.html" target="_blank" >{{.}}</a>
+                {{/if}}
+              {{/each}}<br>
+            {{/each}}
+          </details>
+          {{/if}}
+        </div>
+        <hr/>
+        {{/if}}
+        <div id=tag-list class="tag-list text-center">
+          <p><a onclick="toggle_details(true)">Expand</a> / <a onclick="toggle_details(false)">Collapse</a></p>
+          {{#if r.tags}}
+          <details ontoggle="toggle_pin_menu()">
+            <summary>Keywords</summary>
+            {{#each r.tags}}
+            <span class="label label-keyword btn" skill="{{this}}" onclick="show_keyword('{{this}}')">{{this}}</span>
+            {{/each}}
+          </details>
+          {{/if}}
+        </div>
+        <hr/>
     </div>
 </section>
